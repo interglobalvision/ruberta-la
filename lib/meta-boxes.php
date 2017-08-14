@@ -42,60 +42,60 @@ function igv_cmb_metaboxes() {
   // EXHIBITION
 
   $cmb_exhibition = new_cmb2_box( array(
-  	'id'            => $prefix . 'exhibition_metabox',
-  	'title'         => esc_html__( 'Details', 'cmb2' ),
-  	'object_types'  => array( 'exhibition' ), // Post type
+    'id'            => $prefix . 'exhibition_metabox',
+    'title'         => esc_html__( 'Details', 'cmb2' ),
+    'object_types'  => array( 'exhibition' ), // Post type
   ) );
 
   $cmb_exhibition->add_field( array(
-		'name' => esc_html__( 'Start date', 'cmb2' ),
-		'id'   => $prefix . 'exhibition_start_date',
-		'type' => 'text_date_timestamp',
-	) );
+    'name' => esc_html__( 'Start date', 'cmb2' ),
+    'id'   => $prefix . 'exhibition_start_date',
+    'type' => 'text_date_timestamp',
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name' => esc_html__( 'End date', 'cmb2' ),
-		'id'   => $prefix . 'exhibition_end_date',
-		'type' => 'text_date_timestamp',
-	) );
+    'name' => esc_html__( 'End date', 'cmb2' ),
+    'id'   => $prefix . 'exhibition_end_date',
+    'type' => 'text_date_timestamp',
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name'       => esc_html__( 'Artist Name(s)', 'cmb2' ),
-		'id'         => $prefix . 'exhibition_artists',
-		'type'       => 'text',
-		'repeatable'      => true,
-	) );
+    'name'       => esc_html__( 'Artist Name(s)', 'cmb2' ),
+    'id'         => $prefix . 'exhibition_artists',
+    'type'       => 'text',
+    'repeatable'      => true,
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name'    => esc_html__( 'Background Color', 'cmb2' ),
-		'id'      => $prefix . 'exhibition_background_color',
-		'type'    => 'colorpicker',
-		'default' => '#ffffff',
-	) );
+    'name'    => esc_html__( 'Background Color', 'cmb2' ),
+    'id'      => $prefix . 'exhibition_background_color',
+    'type'    => 'colorpicker',
+    'default' => '#ffffff',
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name'    => esc_html__( 'Font Color', 'cmb2' ),
-		'id'      => $prefix . 'exhibition_font_color',
-		'type'    => 'colorpicker',
-		'default' => '#000000',
-	) );
+    'name'    => esc_html__( 'Font Color', 'cmb2' ),
+    'id'      => $prefix . 'exhibition_font_color',
+    'type'    => 'colorpicker',
+    'default' => '#000000',
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name'    => esc_html__( 'Exhibition Text', 'cmb2' ),
-		'desc'    => esc_html__( 'not Press Text. Enter the Press text in top text entry field', 'cmb2' ),
-		'id'      => $prefix . 'exhibition_text',
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'textarea_rows' => 15,
-		),
-	) );
+    'name'    => esc_html__( 'Exhibition Text', 'cmb2' ),
+    'desc'    => esc_html__( 'not Press Text. Enter the Press text in top text entry field', 'cmb2' ),
+    'id'      => $prefix . 'exhibition_text',
+    'type'    => 'wysiwyg',
+    'options' => array(
+      'textarea_rows' => 15,
+    ),
+  ) );
 
   $cmb_exhibition->add_field( array(
-		'name'         => esc_html__( 'Documentation', 'cmb2' ),
-		'id'           => $prefix . 'exhibition_images',
-		'type'         => 'file_list',
-		'preview_size' => array( 150, 150 ),
-	) );
+    'name'         => esc_html__( 'Documentation', 'cmb2' ),
+    'id'           => $prefix . 'exhibition_images',
+    'type'         => 'file_list',
+    'preview_size' => array( 150, 150 ),
+  ) );
 
 
   // ABOUT
@@ -105,35 +105,35 @@ function igv_cmb_metaboxes() {
   if (!empty($about_page) ) {
 
     $cmb_about = new_cmb2_box( array(
-    	'id'            => $prefix . 'about_metabox',
-    	'title'         => esc_html__( 'Details', 'cmb2' ),
-    	'object_types'  => array( 'page' ), // Post type
+      'id'            => $prefix . 'about_metabox',
+      'title'         => esc_html__( 'Details', 'cmb2' ),
+      'object_types'  => array( 'page' ), // Post type
       'show_on'      => array( 'key' => 'id', 'value' => array($about_page->ID) ),
     ) );
 
     $cmb_about->add_field( array(
-  		'name' => esc_html__( 'Address', 'cmb2' ),
-  		'id'   => $prefix . 'about_address',
-  		'type' => 'textarea',
-  	) );
+      'name' => esc_html__( 'Address', 'cmb2' ),
+      'id'   => $prefix . 'about_address',
+      'type' => 'textarea',
+    ) );
 
     $cmb_about->add_field( array(
-  		'name' => esc_html__( 'Phone', 'cmb2' ),
-  		'id'   => $prefix . 'about_phone',
-  		'type' => 'text',
-  	) );
+      'name' => esc_html__( 'Phone', 'cmb2' ),
+      'id'   => $prefix . 'about_phone',
+      'type' => 'text',
+    ) );
 
     $cmb_about->add_field( array(
-  		'name' => esc_html__( 'email', 'cmb2' ),
-  		'id'   => $prefix . 'about_email',
-  		'type' => 'text_email',
-  	) );
+      'name' => esc_html__( 'email', 'cmb2' ),
+      'id'   => $prefix . 'about_email',
+      'type' => 'text_email',
+    ) );
 
     $cmb_about->add_field( array(
-  		'name' => esc_html__( 'Mailchimp list ID', 'cmb2' ),
-  		'id'   => $prefix . 'about_mailchimp',
-  		'type' => 'text_small',
-  	) );
+      'name' => esc_html__( 'Mailchimp list ID', 'cmb2' ),
+      'id'   => $prefix . 'about_mailchimp',
+      'type' => 'text_small',
+    ) );
 
   }
 
