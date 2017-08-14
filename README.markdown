@@ -28,5 +28,3 @@ This works thanks to the great work of:
 ## Notes
 
 - When you install bower packages make sure to `--save` into the `bower.json` otherwise the gulpfile will fail to find and import correctly into the libraries
-
-![](http://i.imgur.com/G56ITX7.png)
