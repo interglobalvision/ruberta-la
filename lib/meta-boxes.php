@@ -137,5 +137,21 @@ function igv_cmb_metaboxes() {
 
   }
 
+  // GALLERY
+
+  $cmb_gallery = new_cmb2_box( array(
+    'id'               => $prefix . 'gallery_metabox',
+    'title'            => esc_html__( 'Details', 'cmb2' ), // Doesn't output for term boxes
+    'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+    'taxonomies'       => array( 'gallery' ), // Tells CMB2 which taxonomies should have these fields
+  ) );
+
+  $cmb_gallery->add_field( array(
+    'name' => esc_html__( 'Website', 'cmb2' ),
+    'id'   => $prefix . 'gallery_url',
+    'type' => 'text_url',
+    'column'          => true,
+  ) );
+
 }
 ?>
