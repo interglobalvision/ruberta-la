@@ -182,7 +182,15 @@ font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid,
 
 @media screen and (min-width: 1366px)
 
+  $font-size-basic = 18px
+  $font-size-extra = 36px
+  $font-size-large = 30px
+  $font-size-mid = 21px
+  $font-size-small = 16px
+
   grid-maker(90%, false, xl)
+
+  font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small)
 
   @import 'responsive/desktop'
 

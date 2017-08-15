@@ -25,3 +25,53 @@ $header-height= 46px
 #about-galleries
   h3
     font-size: $font-size-basic
+
+svg.jump-arrow
+  height: 14px
+
+#mailing-list-holder
+  padding: $margin-small $margin-basic $margin-large
+  border: 1px solid
+  text-align: center
+
+  #mc_embed_signup
+    background: transparent
+    h2
+      display: none
+
+  .indicates-required
+    display: none
+
+  .mc-field-group
+    display: flex
+    flex-wrap: wrap
+    padding: $margin-small 0
+    label,
+    input
+      margin-bottom: $margin-micro
+    label
+      flex: 0 1 100%
+      font-size: $font-size-mid
+      text-align: left
+      .asterisk
+        display: none
+    input
+      background: transparent
+      border: 0
+      border-bottom: 1px solid
+      flex: 0 1 100%
+      font-size: $font-size-mid
+      padding: $margin-micro 0
+    div.mce_inline_error
+      margin: $margin-micro 0 0 0
+      background: transparent
+      flex-basis: 100%
+
+  input.button
+    appearance: none
+    background: transparent
+    font-size: $font-size-mid
+    border: 0
+    font-weight: bold
+    cursor: pointer
+    margin-top: $margin-tiny
