@@ -51,9 +51,6 @@ if (have_posts()) {
         <?php echo apply_filters('the_content', $address); ?>
 <?php
       }
-?>
-        <p>(entrance in back alley)</p>
-<?php
     }
 
     if (!empty($email) || !empty($phone)) {
