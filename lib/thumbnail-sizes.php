@@ -10,5 +10,7 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'item-l-5', 750, 750, false );
 
+  add_image_size( 'sponsor', 150, 150, false );
+
   add_image_size( 'gallery', 1200, 9999, false );
 }
