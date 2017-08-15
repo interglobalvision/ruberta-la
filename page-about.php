@@ -43,7 +43,9 @@ if (have_posts()) {
 ?>
         <div class="grid-row justify-between">
           <?php echo apply_filters('the_content', $address); ?>
-          <a class="font-bold mobile-only" target="_blank" href="<?php echo esc_url($map_link); ?>">MAP <?php echo url_get_contents(get_template_directory_uri() . '/dist/img/jump_arrow.svg'); ?></a>
+          <div class="font-bold mobile-only">
+            <a class="padding-bottom-small padding-top-small" target="_blank" href="<?php echo esc_url($map_link); ?>">MAP <?php echo url_get_contents(get_template_directory_uri() . '/dist/img/jump_arrow.svg'); ?></a>
+          </div>
         </div>
 <?php
       } else {
@@ -100,13 +102,13 @@ if (have_posts()) {
     if (!empty($mailchimp) || !empty($map_embed)) {
 ?>
 
-    <div class="grid-row margin-bottom-basic">
+    <div class="grid-row margin-bottom-basic justify-between">
 
 <?php
       if (!empty($mailchimp)) {
 ?>
 
-      <div class="grid-item item-s-12 item-m-6 margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-6 item-l-5 margin-bottom-basic">
         <div id="mailing-list-holder">
 
           <div class="font-sans font-size-small margin-bottom-small">Mailing List</div>
@@ -122,7 +124,7 @@ if (have_posts()) {
       if (!empty($map_embed)) {
 ?>
 
-      <div class="grid-item item-s-12 item-m-6 desktop-only margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-6 item-l-5desktop-only margin-bottom-basic">
 
           <?php echo $map_embed; ?>
 
