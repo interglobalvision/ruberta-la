@@ -4,6 +4,13 @@ get_header();
 
 <main id="main-content">
   <section id="exhibitions">
+    <div class="container">
+      <div class="grid-row margin-bottom-large margin-top-small">
+        <div class="grid-item item-s-12">
+          <h1 class="font-logo font-size-small">Exhibitions</h1>
+        </div>
+      </div>
+    </div>
 
 <?php
 $args = array(
