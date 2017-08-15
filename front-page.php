@@ -51,7 +51,7 @@ $upcoming = get_posts($upcoming_args);
 
 $current_is_upcoming = false;
 
-if (!empty($current[0])) {
+if (!empty($current)) {
   // Is current exhibition also upcoming?
   // This is just to change the list headings "On now", "Coming up", "After that"
 
@@ -77,7 +77,7 @@ if (!empty($current[0])) {
 <?php
 }
 
-if (!empty($upcoming[0]) || (!empty($upcoming[1]) && empty($current_is_upcoming))) {
+if (!empty($upcoming)) {
 ?>
 
         <div class="grid-item no-gutter item-s-12 item-m-3 offset-m-1 grid-row align-content-start">
