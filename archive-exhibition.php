@@ -7,7 +7,7 @@ get_header();
     <div class="container">
       <div class="grid-row margin-bottom-large margin-top-small">
         <div class="grid-item item-s-12">
-          <h1 class="font-logo font-size-small">Exhibitions</h1>
+          <h1 class="font-logo font-size-small">Exhibition archive</h1>
         </div>
       </div>
     </div>
