@@ -62,6 +62,17 @@ if (!empty($current_exhibition)) {
   }
 ?>
     }
+
+
+<?php
+  if (!empty($background_color)) {
+?>
+    header {
+      background-color: <?php echo $background_color; ?>;
+    }
+<?php
+  }
+?>
   </style>
 <?php
 }
@@ -72,7 +83,7 @@ if (!empty($current_exhibition)) {
 
 <section id="main-container">
 
-  <header id="header">
+  <header id="header" class="padding-top-tiny padding-bottom-tiny">
     <div class="container">
       <div class="grid-row align-items-center">
 
@@ -81,13 +92,13 @@ if (!empty($current_exhibition)) {
         </div>
 
         <nav class="grid-item item-s-6 item-m-4 item-l-6">
-          <ul id="nav-list" class="u-inline-list font-bold font-sans">
+          <ul id="nav-list" class="u-inline-list font-bold font-sans font-size-small margin-top-micro">
             <li><a href="<?php echo home_url('exhibitions'); ?>">Exhibitions</a></li>
             <li><a href="<?php echo home_url('about'); ?>">About</a></li>
-          <ul>
+          </ul>
         </nav>
 
-        <div class="grid-item item-m-4 item-l-3 desktop-only font-sans font-size-small">
+        <div class="grid-item item-m-4 item-l-3 desktop-only font-sans font-size-small font-light">
           <?php echo get_bloginfo('description'); ?>
         </div>
 
