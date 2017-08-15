@@ -10,6 +10,7 @@ get_header();
 
 <?php
 
+// Get soonest current exhibition
 $current_args = array(
   'post_type'   => 'exhibition',
   'numberposts' => '1',
@@ -24,6 +25,7 @@ $current_args = array(
   ),
 );
 
+// Get upcoming exhibitions
 $upcoming_args = array(
   'post_type'   => 'exhibition',
   'numberposts' => '2',
@@ -50,6 +52,9 @@ $upcoming = get_posts($upcoming_args);
 $current_is_upcoming = false;
 
 if (!empty($current[0])) {
+  // Is current exhibition also upcoming?
+  // This is just to change the list headings "On now", "Coming up", "After that"
+
   $current_is_upcoming = get_post_meta($current[0]->ID, '_igv_exhibition_upcoming', true);
 ?>
 
