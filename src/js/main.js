@@ -6,12 +6,21 @@ Site = {
   init: function() {
     var _this = this;
 
+    _this.resizeTimer;
+
     $(window).resize(function(){
       _this.onResize();
     });
 
     $(document).ready(function () {
+      _this.$masonry = $('.masonry-holder').masonry({
+        itemSelector: '.masonry-item',
+        transitionDuration: 0,
+      });
 
+      _this.$masonry.imagesLoaded().progress( function() {
+        _this.$masonry.masonry('layout');
+      });
     });
 
   },
@@ -19,6 +28,14 @@ Site = {
   onResize: function() {
     var _this = this;
 
+    clearTimeout(_this.resizeTimer);
+    _this.resizeTimer = setTimeout(function() {
+
+      console.log('resize');
+
+      _this.$masonry.masonry('layout');
+
+    }, 250);
   },
 
   fixWidows: function() {
