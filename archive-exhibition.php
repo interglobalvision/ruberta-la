@@ -20,6 +20,7 @@ $args = array(
   'orderby'         => 'meta_value_num',
   'order'           => 'DESC',
   'meta_query'      => array(
+    // Start date before now OR Current
     'relation'      => 'OR',
     array(
       'key'         => '_igv_exhibition_start_date',
