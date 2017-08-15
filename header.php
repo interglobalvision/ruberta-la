@@ -47,32 +47,38 @@ if (!empty($current_exhibition)) {
 
 ?>
   <style>
-    html, body {
 <?php
   if (!empty($background_color)) {
 ?>
-      background-color: <?php echo $background_color; ?>;
-<?php
-  }
-
-  if (!empty($font_color)) {
-?>
-      color: <?php echo $font_color; ?>;
-<?php
-  }
-?>
-    }
-
-
-<?php
-  if (!empty($background_color)) {
-?>
+    html,
+    body,
     #header {
       background-color: <?php echo $background_color; ?>;
     }
 <?php
   }
+
+  if (!empty($font_color)) {
 ?>
+    html,
+    body,
+    .mc-field-group input,
+    #mailing-list-holder input.button {
+      color: <?php echo $font_color; ?>;
+    }
+
+    #mailing-list-holder,
+    .mc-field-group input.mce_inline_error {
+      border-color: <?php echo $font_color; ?>;
+    }
+
+    svg path {
+      fill: <?php echo $font_color; ?>;
+    }
+<?php
+  }
+?>
+
   </style>
 <?php
 }
