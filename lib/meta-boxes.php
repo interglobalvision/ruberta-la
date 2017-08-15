@@ -60,6 +60,22 @@ function igv_cmb_metaboxes() {
   ) );
 
   $cmb_exhibition->add_field( array(
+    'name' => esc_html__( 'Current', 'cmb2' ),
+    'desc'    => esc_html__( 'Displays on Home as current exhibition. Background & Font Colors are used.', 'cmb2' ),
+    'id'   => $prefix . 'exhibition_current',
+    'type' => 'checkbox',
+    'column' => true,
+  ) );
+
+  $cmb_exhibition->add_field( array(
+    'name' => esc_html__( 'Upcoming', 'cmb2' ),
+    'desc'    => esc_html__( 'Displays on Home as upcoming exhibition. Hidden from exhibition archive.', 'cmb2' ),
+    'id'   => $prefix . 'exhibition_upcoming',
+    'type' => 'checkbox',
+    'column' => true,
+  ) );
+
+  $cmb_exhibition->add_field( array(
     'name'       => esc_html__( 'Artist Name(s)', 'cmb2' ),
     'id'         => $prefix . 'exhibition_artists',
     'type'       => 'text',
