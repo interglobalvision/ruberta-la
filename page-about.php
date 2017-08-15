@@ -124,7 +124,7 @@ if (have_posts()) {
       if (!empty($map_embed)) {
 ?>
 
-      <div class="grid-item item-s-12 item-m-6 item-l-5desktop-only margin-bottom-basic">
+      <div id="map-holder" class="grid-item item-s-12 item-m-6 item-xl-5 desktop-only margin-bottom-basic">
 
           <?php echo $map_embed; ?>
 
