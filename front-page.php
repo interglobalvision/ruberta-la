@@ -49,12 +49,6 @@ $current = get_posts($current_args);
 
 $upcoming = get_posts($upcoming_args);
 
-?>
-
-
-
-<?php
-
 if (!empty($current)) {
   // Is current exhibition also upcoming?
   // This is just to change the list headings "On now", "Coming up", "After that"
