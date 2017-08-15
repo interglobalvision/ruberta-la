@@ -25,6 +25,16 @@ normalize()
 
 // ******************************************************
 
+// FONTS
+
+@import 'fonts/fonts'
+
+$font-sans = 'Theinhardt', font-stack('Helvetica');
+$font-serif = 'CMU Serif', font-stack('Georgia');
+$font-logo = 'YoungSerif', font-stack('Georgia');
+
+// ******************************************************
+
 // TYPOGRAPHY
 
 @import '../../globie-library/type'
@@ -51,6 +61,9 @@ body
 .font-serif
   font-family: $font-serif
 
+.font-logo
+  font-family: $font-logo
+
 .font-larger
   font-size: $font-size-larger
 
@@ -59,6 +72,9 @@ body
 
 .line-larger
   line-height: $font-leading-larger
+
+.font-light
+  font-weight: 300
 
 // ******************************************************
 
@@ -99,9 +115,10 @@ $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
 $font-size-basic = 12px
-$font-size-h1 = 28px
-$font-size-h2 = 21px
-$font-size-h3 = 16px
+$font-size-extra = 28px
+$font-size-large = 21px
+$font-size-mid = 16px
+$font-size-small = 16px
 
 grid-maker(96%, $gutter, s)
 
