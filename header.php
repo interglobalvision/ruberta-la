@@ -55,6 +55,10 @@ if (!empty($current_exhibition)) {
     #header {
       background-color: <?php echo $background_color; ?>;
     }
+
+    ::selection {
+      color: <?php echo $background_color; ?>;
+    }
 <?php
   }
 
@@ -68,16 +72,22 @@ if (!empty($current_exhibition)) {
     }
 
     #mailing-list-holder,
-    .mc-field-group input.mce_inline_error {
+    #mailing-list-holder #mc_embed_signup input.mce_inline_error {
       border-color: <?php echo $font_color; ?>;
     }
 
     svg path {
       fill: <?php echo $font_color; ?>;
     }
+
+    ::selection {
+      background-color: <?php echo $font_color; ?>;
+    }
 <?php
   }
 ?>
+
+
 
   </style>
 <?php
