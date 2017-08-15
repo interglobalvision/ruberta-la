@@ -70,7 +70,7 @@ function render_exhibition_details($post_id) {
     $gallery_list = return_gallery_list($galleries);
 ?>
 
-    <div class="font-sans font-small">
+    <div class="font-sans font-size-small font-light margin-bottom-tiny">
       <?php echo $gallery_list; ?>
     </div>
 
@@ -80,19 +80,19 @@ function render_exhibition_details($post_id) {
   if (is_single()) {
 ?>
 
-    <h1 class="font-serif font-large"><a href="<?php echo get_the_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h1>
+    <h1 class="font-serif font-size-large margin-bottom-small"><a href="<?php echo get_the_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h1>
 
 <?php
 } else {
 ?>
 
-    <h2 class="font-serif font-large"><a href="<?php echo get_the_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h2>
+    <h2 class="font-serif font-size-large margin-bottom-small"><a href="<?php echo get_the_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h2>
 
 <?php
 }
   if (!empty($artists)) {
 ?>
-    <ul class="font-sans font-bold">
+    <ul class="font-sans font-size-mid margin-bottom-tiny">
 <?php
     foreach ($artists as $name) {
 ?>
@@ -108,7 +108,7 @@ function render_exhibition_details($post_id) {
     $exhibition_dates = return_exhibition_dates($start_date, $end_date);
 ?>
 
-    <div class="font-sans font-small">
+    <div class="font-sans font-size-small font-light">
       <?php echo $exhibition_dates; ?>
     </div>
 
