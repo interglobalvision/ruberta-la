@@ -113,6 +113,13 @@ function igv_cmb_metaboxes() {
     'preview_size' => array( 150, 150 ),
   ) );
 
+  $cmb_exhibition->add_field( array(
+    'name'         => esc_html__( 'Sponsor Logos', 'cmb2' ),
+    'id'           => $prefix . 'exhibition_sponsors',
+    'type'         => 'file_list',
+    'preview_size' => array( 100, 100 ),
+  ) );
+
 
   // ABOUT
 
