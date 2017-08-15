@@ -115,8 +115,8 @@ $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
 $font-size-basic = 16px
-$font-size-extra = 24px
-$font-size-large = 21px
+$font-size-extra = 27px
+$font-size-large = 24px
 $font-size-mid = 18px
 $font-size-small = 12px
 
@@ -182,13 +182,15 @@ font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid,
 
 @media screen and (min-width: 1366px)
 
+  $gutter = 21px
+
   $font-size-basic = 18px
   $font-size-extra = 36px
   $font-size-large = 30px
   $font-size-mid = 21px
   $font-size-small = 16px
 
-  grid-maker(90%, false, xl)
+  grid-maker(90%, $gutter, xl)
 
   font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small)
 
