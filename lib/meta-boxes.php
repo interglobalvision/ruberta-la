@@ -114,7 +114,13 @@ function igv_cmb_metaboxes() {
     $cmb_about->add_field( array(
       'name' => esc_html__( 'Address', 'cmb2' ),
       'id'   => $prefix . 'about_address',
-      'type' => 'textarea',
+      'type' => 'textarea_small',
+    ) );
+
+    $cmb_about->add_field( array(
+      'name' => esc_html__( 'Email', 'cmb2' ),
+      'id'   => $prefix . 'about_email',
+      'type' => 'text_email',
     ) );
 
     $cmb_about->add_field( array(
@@ -124,15 +130,21 @@ function igv_cmb_metaboxes() {
     ) );
 
     $cmb_about->add_field( array(
-      'name' => esc_html__( 'email', 'cmb2' ),
-      'id'   => $prefix . 'about_email',
-      'type' => 'text_email',
+      'name' => esc_html__( 'Mailchimp form', 'cmb2' ),
+      'id'   => $prefix . 'about_mailchimp',
+      'type' => 'textarea_code',
     ) );
 
     $cmb_about->add_field( array(
-      'name' => esc_html__( 'Mailchimp list ID', 'cmb2' ),
-      'id'   => $prefix . 'about_mailchimp',
-      'type' => 'text_small',
+      'name' => esc_html__( 'Google map link', 'cmb2' ),
+      'id'   => $prefix . 'about_map_link',
+      'type' => 'text_url',
+    ) );
+
+    $cmb_about->add_field( array(
+      'name' => esc_html__( 'Google map embed', 'cmb2' ),
+      'id'   => $prefix . 'about_map_embed',
+      'type' => 'textarea_code',
     ) );
 
   }
@@ -150,7 +162,13 @@ function igv_cmb_metaboxes() {
     'name' => esc_html__( 'Website', 'cmb2' ),
     'id'   => $prefix . 'gallery_url',
     'type' => 'text_url',
-    'column'          => true,
+    'column'  => true,
+  ) );
+
+  $cmb_gallery->add_field( array(
+    'name' => esc_html__( 'Permanent resident', 'cmb2' ),
+    'id'   => $prefix . 'gallery_resident',
+    'type' => 'checkbox',
   ) );
 
 }
