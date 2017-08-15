@@ -36,7 +36,7 @@ if (have_posts()) {
         <?php the_content(); ?>
       </div>
 
-      <div class="grid-item item-s-12 item-m-3 offset-m-1 font-size-mid font-sans margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-3 offset-m-1 font-size-mid font-sans font-light margin-bottom-basic">
 <?php
     if (!empty($address)) {
       if (!empty($map_link)) {
@@ -76,17 +76,19 @@ if (have_posts()) {
         $website = get_term_meta($gallery->term_id, '_igv_gallery_url', true);
 ?>
 
-      <div class="grid-item flex-grow font-size-small font-sans margin-bottom-basic">
+      <div class="grid-item flex-grow font-sans margin-bottom-basic">
 
-        <h3 class="font-size-mid font-sans margin-bottom-small"><?php echo $gallery->name; ?></h3>
+        <h3 class="font-size-mid margin-bottom-small"><?php echo $gallery->name; ?></h3>
 
-        <?php
-          echo apply_filters('the_content', $gallery->description);
+        <div class="font-size-small font-light">
+          <?php
+            echo apply_filters('the_content', $gallery->description);
 
-          if (!empty($website)) {
-            echo '<a class="link-underline" href="' . esc_url($website) . '">' . esc_url($website) . '</a>';
-          }
-        ?>
+            if (!empty($website)) {
+              echo '<a class="link-underline" href="' . esc_url($website) . '">' . esc_url($website) . '</a>';
+            }
+          ?>
+        </div>
 
       </div>
 
@@ -111,7 +113,7 @@ if (have_posts()) {
       <div class="grid-item item-s-12 item-m-6 item-l-5 margin-bottom-basic">
         <div id="mailing-list-holder">
 
-          <div class="font-sans font-size-small margin-bottom-small">Mailing List</div>
+          <div class="font-sans font-size-small font-light margin-bottom-small">Mailing List</div>
 
           <?php echo $mailchimp; ?>
 
