@@ -25,7 +25,7 @@ if (have_posts()) {
 ?>
 
   <article <?php post_class('container'); ?> id="post-<?php the_ID(); ?>">
-    <div class="grid-row margin-bottom-large">
+    <div class="grid-row margin-bottom-large margin-top-small">
       <div class="grid-item item-s-12">
         <h1 class="font-logo font-size-small">About</h1>
       </div>
