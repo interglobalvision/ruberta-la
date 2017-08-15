@@ -21,7 +21,51 @@ get_template_part('partials/seo');
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 <?php } ?>
 
-  <?php wp_head(); ?>
+<?php wp_head(); ?>
+
+<?php
+
+$current_args = array(
+  'post_type'   => 'exhibition',
+  'numberposts' => '1',
+  'meta_key'    => '_igv_exhibition_start_date',
+  'orderby'     => 'meta_value_num',
+  'order'       => 'ASC',
+  'meta_query'  => array(
+    array(
+      'key'    => '_igv_exhibition_current',
+      'value'  => 'on',
+    ),
+  ),
+);
+
+$current_exhibition = get_posts($current_args);
+
+if (!empty($current_exhibition)) {
+  $background_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_background_color', true);
+  $font_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_font_color', true);
+
+?>
+  <style>
+    html, body {
+<?php
+  if (!empty($background_color)) {
+?>
+      background-color: <?php echo $background_color; ?>;
+<?php
+  }
+
+  if (!empty($font_color)) {
+?>
+      color: <?php echo $font_color; ?>;
+<?php
+  }
+?>
+    }
+  </style>
+<?php
+}
+?>
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
@@ -32,18 +76,18 @@ get_template_part('partials/seo');
     <div class="container">
       <div class="grid-row align-items-center">
 
-        <div class="grid-item item-s-6 item-m-3">
+        <div class="grid-item item-s-6 item-m-4 item-l-3">
           <h1 class="font-size-extra font-logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         </div>
 
-        <nav class="grid-item item-s-6 item-m-6">
+        <nav class="grid-item item-s-6 item-m-4 item-l-6">
           <ul id="nav-list" class="u-inline-list font-bold font-sans">
             <li><a href="<?php echo home_url('exhibitions'); ?>">Exhibitions</a></li>
             <li><a href="<?php echo home_url('about'); ?>">About</a></li>
           <ul>
         </nav>
 
-        <div class="grid-item item-m-3 desktop-only font-sans font-size-small">
+        <div class="grid-item item-m-4 item-l-3 desktop-only font-sans font-size-small">
           <?php echo get_bloginfo('description'); ?>
         </div>
 

@@ -6,7 +6,7 @@ get_header();
   <section id="posts">
     <div class="container">
 
-      <div class="grid-row">
+      <div class="grid-row margin-top-small">
 
 <?php
 
@@ -49,8 +49,6 @@ $current = get_posts($current_args);
 
 $upcoming = get_posts($upcoming_args);
 
-$current_is_upcoming = false;
-
 if (!empty($current)) {
   // Is current exhibition also upcoming?
   // This is just to change the list headings "On now", "Coming up", "After that"
@@ -58,18 +56,10 @@ if (!empty($current)) {
   $current_is_upcoming = get_post_meta($current[0]->ID, '_igv_exhibition_upcoming', true);
 ?>
 
-        <div class="grid-item no-gutter item-s-12 item-m-8 grid-row">
+        <div class="grid-item no-gutter item-s-12 item-m-8 grid-row align-content-start">
 
-          <div class="grid-item item-s-12 margin-bottom-large font-logo">
+          <div class="grid-item item-s-12 margin-bottom-large font-logo font-size-small">
             <?php echo empty($current_is_upcoming) ? 'On now' : 'Coming up'; ?>
-          </div>
-
-          <div class="grid-item item-s-12 item-m-4">
-            <?php echo render_exhibition_details($current[0]->ID);?>
-          </div>
-
-          <div class="grid-item item-s-12 item-m-8">
-            <?php echo wp_get_attachment_image(get_post_thumbnail_id($current[0]->ID), 'item-l-5'); ?>
           </div>
 
         </div>
@@ -80,13 +70,49 @@ if (!empty($current)) {
 if (!empty($upcoming)) {
 ?>
 
-        <div class="grid-item no-gutter item-s-12 item-m-3 offset-m-1 grid-row align-content-start">
+        <div class="grid-item no-gutter item-s-12 item-m-4 item-l-3 offset-l-1 grid-row desktop-only">
 
-          <div class="grid-item item-s-12 margin-bottom-large font-logo">
+          <div class="grid-item item-s-12 margin-bottom-large font-logo font-size-small">
+            <?php echo $current_is_upcoming == 'on' ? 'After that' : 'Coming up'; ?>
+          </div>
+
+        </div>
+
+<?php
+}
+?>
+      </div>
+
+      <div class="grid-row">
+
+<?php
+
+if (!empty($current)) {
+
+?>
+
+        <div class="grid-item item-s-12 item-m-4 item-l-3 margin-bottom-basic">
+          <?php echo render_exhibition_details($current[0]->ID);?>
+        </div>
+
+        <div class="grid-item item-s-12 item-m-4 item-l-5">
+          <?php echo wp_get_attachment_image(get_post_thumbnail_id($current[0]->ID), 'item-l-5'); ?>
+        </div>
+
+<?php
+}
+
+if (!empty($upcoming)) {
+?>
+
+        <div class="grid-item item-s-12 item-m-4 item-l-3 offset-l-1 grid-row no-gutter">
+
+          <div class="grid-item item-s-12 mobile-only font-logo font-size-small margin-bottom-large margin-top-large">
             <?php echo $current_is_upcoming == 'on' ? 'After that' : 'Coming up'; ?>
           </div>
 
 <?php
+
   foreach ($upcoming as $post) {
 ?>
 
@@ -105,6 +131,7 @@ if (!empty($upcoming)) {
 ?>
 
       </div>
+
     </div>
   </section>
 </main>
