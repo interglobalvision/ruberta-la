@@ -60,7 +60,7 @@ function return_exhibition_dates($start, $end) {
 //
 // Returns formatted exhibition details with markup
 //
-function get_exhibition_details($post_id) {
+function render_exhibition_details($post_id) {
   $galleries = wp_get_object_terms( $post_id,  'gallery' );
   $artists = get_post_meta($post_id, '_igv_exhibition_artists', true);
   $start_date = get_post_meta($post_id, '_igv_exhibition_start_date', true);

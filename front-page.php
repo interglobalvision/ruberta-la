@@ -65,7 +65,7 @@ if (!empty($current)) {
           </div>
 
           <div class="grid-item item-s-12 item-m-4">
-            <?php echo get_exhibition_details($current[0]->ID);?>
+            <?php echo render_exhibition_details($current[0]->ID);?>
           </div>
 
           <div class="grid-item item-s-12 item-m-8">
@@ -91,7 +91,7 @@ if (!empty($upcoming)) {
 ?>
 
           <div class="grid-item item-s-12">
-            <?php echo get_exhibition_details($post->ID);?>
+            <?php echo render_exhibition_details($post->ID);?>
           </div>
 
 <?php
