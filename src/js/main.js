@@ -12,12 +12,28 @@ Site = {
 
     $(document).ready(function () {
 
+      // Init Masonry
+      _this.$masonry = $('.masonry-holder').masonry({
+        itemSelector: '.masonry-item',
+        transitionDuration: 0,
+      });
+
+      // Re-layout as images get loaded
+      _this.$masonry.imagesLoaded().progress( function() {
+        _this.$masonry.masonry('layout');
+      });
     });
 
   },
 
   onResize: function() {
     var _this = this;
+
+    // Debounced masonry re-layout
+    clearTimeout(_this.resizeTimer);
+    _this.resizeTimer = setTimeout(function() {
+      _this.$masonry.masonry('layout');
+    }, 250);
 
   },
 
