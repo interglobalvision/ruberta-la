@@ -67,7 +67,7 @@ if (!empty($current_exhibition)) {
 <?php
   if (!empty($background_color)) {
 ?>
-    header {
+    #header {
       background-color: <?php echo $background_color; ?>;
     }
 <?php
