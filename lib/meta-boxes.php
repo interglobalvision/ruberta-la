@@ -108,6 +108,7 @@ function igv_cmb_metaboxes() {
 
   $cmb_exhibition->add_field( array(
     'name'         => esc_html__( 'Documentation', 'cmb2' ),
+    'desc'    => esc_html__( 'Text in Caption field appears below images', 'cmb2' ),
     'id'           => $prefix . 'exhibition_images',
     'type'         => 'file_list',
     'preview_size' => array( 150, 150 ),
@@ -115,6 +116,7 @@ function igv_cmb_metaboxes() {
 
   $cmb_exhibition->add_field( array(
     'name'         => esc_html__( 'Sponsor Logos', 'cmb2' ),
+    'desc'    => esc_html__( 'Use Caption field for link URL', 'cmb2' ),
     'id'           => $prefix . 'exhibition_sponsors',
     'type'         => 'file_list',
     'preview_size' => array( 100, 100 ),
