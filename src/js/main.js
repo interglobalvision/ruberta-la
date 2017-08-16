@@ -6,14 +6,20 @@ Site = {
   init: function() {
     var _this = this;
 
+    _this.$ratioImages = $('.ratio-image');
+    _this.$masonryHolder = $('.masonry-holder');
+
     $(window).resize(function(){
       _this.onResize();
     });
 
     $(document).ready(function () {
-      $('#main-content').imagesLoaded().progress( function() {
-        _this.sizeImages();
-      });
+      // Size ratio images and layout masonry as loaded
+      if (_this.$ratioImages.length) {
+        $('#main-content').imagesLoaded().progress( function() {
+          _this.sizeImages();
+        });
+      }
     });
 
   },
@@ -21,18 +27,20 @@ Site = {
   onResize: function() {
     var _this = this;
 
-    // Debounced masonry & image re-layout
-    clearTimeout(_this.resizeTimer);
-    _this.resizeTimer = setTimeout(function() {
-      _this.sizeImages();
-    }, 250);
+    if (_this.$ratioImages.length) {
+      // Debounced masonry & image re-layout
+      clearTimeout(_this.resizeTimer);
+      _this.resizeTimer = setTimeout(function() {
+        _this.sizeImages();
+      }, 250);
+    }
 
   },
 
   layoutMasonry: function() {
     var _this = this;
 
-    $('.masonry-holder').masonry({
+    _this.$masonryHolder.masonry({
       itemSelector: '.masonry-item',
       transitionDuration: 0,
     });
@@ -41,13 +49,15 @@ Site = {
   sizeImages: function() {
     var _this = this;
 
-    $('.ratio-image').each(function() {
+    // Set image max-height to width of container
+    _this.$ratioImages.each(function() {
       var width = $(this).parent().width();
 
       $(this).css('max-height', width);
     });
 
-    if ($('.masonry-holder').length) {
+    // Layout masonry after $.each (synchronous)
+    if (_this.$masonryHolder.length) {
       _this.layoutMasonry();
     }
   },
