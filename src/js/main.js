@@ -11,16 +11,8 @@ Site = {
     });
 
     $(document).ready(function () {
-
-      // Init Masonry
-      _this.$masonry = $('.masonry-holder').masonry({
-        itemSelector: '.masonry-item',
-        transitionDuration: 0,
-      });
-
-      // Re-layout as images get loaded
-      _this.$masonry.imagesLoaded().progress( function() {
-        _this.$masonry.masonry('layout');
+      $('#main-content').imagesLoaded().progress( function() {
+        _this.sizeImages();
       });
     });
 
@@ -29,12 +21,35 @@ Site = {
   onResize: function() {
     var _this = this;
 
-    // Debounced masonry re-layout
+    // Debounced masonry & image re-layout
     clearTimeout(_this.resizeTimer);
     _this.resizeTimer = setTimeout(function() {
-      _this.$masonry.masonry('layout');
+      _this.sizeImages();
     }, 250);
 
+  },
+
+  layoutMasonry: function() {
+    var _this = this;
+
+    $('.masonry-holder').masonry({
+      itemSelector: '.masonry-item',
+      transitionDuration: 0,
+    });
+  },
+
+  sizeImages: function() {
+    var _this = this;
+
+    $('.ratio-image').each(function() {
+      var width = $(this).parent().width();
+
+      $(this).css('max-height', width);
+    });
+
+    if ($('.masonry-holder').length) {
+      _this.layoutMasonry();
+    }
   },
 
   fixWidows: function() {
