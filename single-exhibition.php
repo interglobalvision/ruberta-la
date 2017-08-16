@@ -47,7 +47,11 @@ if (have_posts()) {
           <div class="margin-bottom-basic grid-row align-items-center">
             <?php
               foreach ($sponsors as $id => $url) {
+                $link = wp_get_attachment_caption($id);
+
+                echo !empty($link) ? '<a target="_blank" href="' . esc_url($link) . '">';
                 echo wp_get_attachment_image($id, 'sponsor', false, 'class=grid-item');
+                echo !empty($link) ? '</a>';
               }
             ?>
           </div>
