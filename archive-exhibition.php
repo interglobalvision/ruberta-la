@@ -53,7 +53,7 @@ if ($query->have_posts()) {
           <div class="container">
             <div class="grid-row">
               <div class="grid-item item-s-4 item-m-2">
-                <?php the_post_thumbnail('item-l-2'); ?>
+                <?php the_post_thumbnail('item-l-2', 'class=ratio-image'); ?>
               </div>
               <div class="grid-item item-s-8 item-m-10 item-l-8 no-gutter grid-row">
                 <div class="grid-item item-s-12 item-m-6">

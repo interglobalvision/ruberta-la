@@ -6,22 +6,20 @@ Site = {
   init: function() {
     var _this = this;
 
+    _this.$ratioImages = $('.ratio-image');
+    _this.$masonryHolder = $('.masonry-holder');
+
     $(window).resize(function(){
       _this.onResize();
     });
 
     $(document).ready(function () {
-
-      // Init Masonry
-      _this.$masonry = $('.masonry-holder').masonry({
-        itemSelector: '.masonry-item',
-        transitionDuration: 0,
-      });
-
-      // Re-layout as images get loaded
-      _this.$masonry.imagesLoaded().progress( function() {
-        _this.$masonry.masonry('layout');
-      });
+      // Size ratio images and layout masonry as loaded
+      if (_this.$ratioImages.length) {
+        $('#main-content').imagesLoaded().progress( function() {
+          _this.sizeImages();
+        });
+      }
     });
 
   },
@@ -29,12 +27,39 @@ Site = {
   onResize: function() {
     var _this = this;
 
-    // Debounced masonry re-layout
-    clearTimeout(_this.resizeTimer);
-    _this.resizeTimer = setTimeout(function() {
-      _this.$masonry.masonry('layout');
-    }, 250);
+    if (_this.$ratioImages.length) {
+      // Debounced masonry & image re-layout
+      clearTimeout(_this.resizeTimer);
+      _this.resizeTimer = setTimeout(function() {
+        _this.sizeImages();
+      }, 250);
+    }
 
+  },
+
+  layoutMasonry: function() {
+    var _this = this;
+
+    _this.$masonryHolder.masonry({
+      itemSelector: '.masonry-item',
+      transitionDuration: 0,
+    });
+  },
+
+  sizeImages: function() {
+    var _this = this;
+
+    // Set image max-height to width of container
+    _this.$ratioImages.each(function() {
+      var width = $(this).parent().width();
+
+      $(this).css('max-height', width);
+    });
+
+    // Layout masonry after $.each (synchronous)
+    if (_this.$masonryHolder.length) {
+      _this.layoutMasonry();
+    }
   },
 
   fixWidows: function() {

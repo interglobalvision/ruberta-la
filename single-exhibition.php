@@ -21,41 +21,39 @@ if (have_posts()) {
     $sponsors = get_post_meta($post->ID, '_igv_exhibition_sponsors', true);
 ?>
 
-      <article <?php post_class('grid-row masonry-holder'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('masonry-holder'); ?> id="post-<?php the_ID(); ?>">
 
-        <div class="grid-item masonry-item item-s-12 item-m-6 margin-bottom-mid grid-row">
-          <div class="item-s-12 item-m-10">
+        <div class="masonry-item margin-bottom-mid">
 
-            <div class="margin-bottom-mid">
-              <?php echo render_exhibition_details($post->ID);?>
-            </div>
+          <div class="margin-bottom-mid">
+            <?php echo render_exhibition_details($post->ID);?>
+          </div>
 
-            <div class="margin-bottom-basic font-sans font-size-small font-light">
-              <?php the_content();?>
-            </div>
+          <div class="margin-bottom-basic font-sans font-size-small font-light limit-paragraph">
+            <?php the_content();?>
+          </div>
 
 <?php
     if (!empty($exhibition_text)) {
 ?>
-            <div class="margin-bottom-basic font-serif">
-              <?php echo apply_filters('the_content', $exhibition_text); ?>
-            </div>
+          <div class="margin-bottom-basic font-serif limit-paragraph">
+            <?php echo apply_filters('the_content', $exhibition_text); ?>
+          </div>
 <?php
     }
 
     if (!empty($sponsors)) {
 ?>
-            <div class="margin-bottom-basic grid-row align-items-center">
-              <?php
-                foreach ($sponsors as $id => $url) {
-                  echo wp_get_attachment_image($id, 'sponsor', false, 'class=grid-item');
-                }
-              ?>
-            </div>
+          <div class="margin-bottom-basic grid-row align-items-center">
+            <?php
+              foreach ($sponsors as $id => $url) {
+                echo wp_get_attachment_image($id, 'sponsor', false, 'class=grid-item');
+              }
+            ?>
+          </div>
 <?php
     }
 ?>
-          </div>
         </div>
 
 <?php
@@ -64,15 +62,20 @@ if (have_posts()) {
         $caption = wp_get_attachment_caption($id);
 ?>
 
-        <div class="grid-item masonry-item item-s-12 item-m-6 text-align-right margin-bottom-mid">
-          <div>
-            <?php echo wp_get_attachment_image($id, 'item-l-6', false, 'data-no-lazysizes'); ?>
-            <div class="text-align-left font-size-small font-sans font-light margin-top-micro"><?php echo $caption; ?></div>
-          </div>
+        <div class="masonry-item text-align-right margin-bottom-mid">
+          <?php echo wp_get_attachment_image($id, 'item-l-6', false, array('data-no-lazysizes' => ' ', 'class' => 'ratio-image')); ?>
+          <div class="text-align-right font-size-small font-sans font-light margin-top-micro"><?php echo $caption; ?></div>
         </div>
 
 <?php
       }
+    } else {
+?>
+        <div class="masonry-item text-align-right margin-bottom-mid">
+          <?php echo the_post_thumbnail('item-l-6', array('data-no-lazysizes' => ' ', 'class' => 'ratio-image')); ?>
+          <div class="text-align-right font-size-small font-sans font-light margin-top-micro"><?php the_post_thumbnail_caption(); ?></div>
+        </div>
+<?php
     }
 ?>
 

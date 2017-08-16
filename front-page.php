@@ -96,7 +96,7 @@ if (!empty($current)) {
         </div>
 
         <div class="grid-item item-s-12 item-m-4 item-l-5">
-          <?php echo wp_get_attachment_image(get_post_thumbnail_id($current[0]->ID), 'item-l-5'); ?>
+          <?php echo wp_get_attachment_image(get_post_thumbnail_id($current[0]->ID), 'item-l-5', false,  'class=ratio-image'); ?>
         </div>
 
 <?php
