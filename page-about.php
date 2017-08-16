@@ -9,6 +9,10 @@ if (have_posts()) {
   while (have_posts()) {
     the_post();
 
+    $facebook = IGV_get_option('_igv_site_options', '_igv_socialmedia_facebook_url');
+    $instagram = IGV_get_option('_igv_site_options', '_igv_socialmedia_instagram');
+    $twitter = IGV_get_option('_igv_site_options', '_igv_socialmedia_twitter');
+
     $address = get_post_meta($post->ID, '_igv_about_address', true);
     $phone = get_post_meta($post->ID, '_igv_about_phone', true);
     $email = get_post_meta($post->ID, '_igv_about_email', true);
@@ -59,6 +63,16 @@ if (have_posts()) {
 ?>
         <?php echo !empty($email) ? '<span class="u-block"><a class="link-underline" href="mailto:' . $email . '">' . $email . '</a></span>' : ''; ?>
         <?php echo !empty($phone) ? '<span class="u-block"><a class="link-underline" href="tel:' . $email . '">' . $phone . '</a></span>' : ''; ?>
+<?php
+    }
+
+    if (!empty($facebook) || !empty($instagram) || !empty($twitter)) {
+?>
+        <div id="about-social" class="margin-top-tiny">
+          <?php echo !empty($facebook) ? '<span><a href="' . $facebook . '">' . url_get_contents(get_template_directory_uri() . '/dist/img/icon-fb.svg') . '</a></span>' : ''; ?>
+          <?php echo !empty($instagram) ? '<span><a href="https://instagram.com/' . $instagram . '/">' . url_get_contents(get_template_directory_uri() . '/dist/img/icon-ig.svg') . '</a></span>' : ''; ?>
+          <?php echo !empty($twitter) ? '<span><a href="https://twitter.com/' . $twitter . '">' . url_get_contents(get_template_directory_uri() . '/dist/img/icon-tw.svg') . '</a></span>' : ''; ?>
+        </div>
 <?php
     }
 ?>
