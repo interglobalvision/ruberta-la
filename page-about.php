@@ -36,14 +36,16 @@ if (have_posts()) {
         <?php the_content(); ?>
       </div>
 
-      <div class="grid-item item-s-12 item-m-3 offset-m-1 font-size-mid font-sans margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-3 offset-m-1 font-size-mid font-sans font-light margin-bottom-basic">
 <?php
     if (!empty($address)) {
       if (!empty($map_link)) {
 ?>
         <div class="grid-row justify-between">
           <?php echo apply_filters('the_content', $address); ?>
-          <a class="font-bold mobile-only" target="_blank" href="<?php echo esc_url($map_link); ?>">MAP <?php echo url_get_contents(get_template_directory_uri() . '/dist/img/jump_arrow.svg'); ?></a>
+          <div class="font-bold mobile-only">
+            <a class="padding-bottom-small padding-top-small" target="_blank" href="<?php echo esc_url($map_link); ?>">MAP <?php echo url_get_contents(get_template_directory_uri() . '/dist/img/jump_arrow.svg'); ?></a>
+          </div>
         </div>
 <?php
       } else {
@@ -74,17 +76,19 @@ if (have_posts()) {
         $website = get_term_meta($gallery->term_id, '_igv_gallery_url', true);
 ?>
 
-      <div class="grid-item flex-grow font-size-small font-sans margin-bottom-basic">
+      <div class="grid-item flex-grow font-sans margin-bottom-basic">
 
-        <h3 class="font-size-mid font-sans margin-bottom-small"><?php echo $gallery->name; ?></h3>
+        <h3 class="font-size-mid margin-bottom-small"><?php echo $gallery->name; ?></h3>
 
-        <?php
-          echo apply_filters('the_content', $gallery->description);
+        <div class="font-size-small font-light">
+          <?php
+            echo apply_filters('the_content', $gallery->description);
 
-          if (!empty($website)) {
-            echo '<a class="link-underline" href="' . esc_url($website) . '">' . esc_url($website) . '</a>';
-          }
-        ?>
+            if (!empty($website)) {
+              echo '<a class="link-underline" href="' . esc_url($website) . '">' . esc_url($website) . '</a>';
+            }
+          ?>
+        </div>
 
       </div>
 
@@ -100,16 +104,16 @@ if (have_posts()) {
     if (!empty($mailchimp) || !empty($map_embed)) {
 ?>
 
-    <div class="grid-row margin-bottom-basic">
+    <div class="grid-row margin-bottom-basic justify-between">
 
 <?php
       if (!empty($mailchimp)) {
 ?>
 
-      <div class="grid-item item-s-12 item-m-6 margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-6 item-l-5 margin-bottom-basic">
         <div id="mailing-list-holder">
 
-          <div class="font-sans font-size-small margin-bottom-small">Mailing List</div>
+          <div class="font-sans font-size-small font-light margin-bottom-small">Mailing List</div>
 
           <?php echo $mailchimp; ?>
 
@@ -122,7 +126,7 @@ if (have_posts()) {
       if (!empty($map_embed)) {
 ?>
 
-      <div class="grid-item item-s-12 item-m-6 desktop-only margin-bottom-basic">
+      <div id="map-holder" class="grid-item item-s-12 item-m-6 item-xl-5 desktop-only margin-bottom-basic">
 
           <?php echo $map_embed; ?>
 
