@@ -52,7 +52,7 @@ if ($query->have_posts()) {
         <article <?php post_class('padding-top-basic padding-bottom-basic'); ?> id="post-<?php the_ID(); ?>" style="background-color: <?php echo $background_color; ?>; color: <?php echo $font_color; ?>;">
           <div class="container">
             <div class="grid-row">
-              <div class="grid-item item-s-4 item-m-2">
+              <div class="grid-item item-s-4 item-m-2 ratio-image-holder">
                 <?php the_post_thumbnail('item-l-2', 'class=ratio-image'); ?>
               </div>
               <div class="grid-item item-s-8 item-m-10 item-l-8 no-gutter grid-row">

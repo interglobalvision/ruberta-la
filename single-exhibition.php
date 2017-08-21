@@ -66,7 +66,7 @@ if (have_posts()) {
         $caption = wp_get_attachment_caption($id);
 ?>
 
-        <div class="masonry-item text-align-right margin-bottom-mid">
+        <div class="masonry-item text-align-right margin-bottom-mid ratio-image-holder">
           <?php echo wp_get_attachment_image($id, 'item-l-6', false, array('data-no-lazysizes' => ' ', 'class' => 'ratio-image')); ?>
           <div class="text-align-right font-size-small font-sans font-light margin-top-micro"><?php echo $caption; ?></div>
         </div>
