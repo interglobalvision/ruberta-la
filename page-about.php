@@ -90,7 +90,7 @@ if (have_posts()) {
         $website = get_term_meta($gallery->term_id, '_igv_gallery_url', true);
 ?>
 
-      <div class="grid-item flex-grow font-sans margin-bottom-basic">
+      <div class="grid-item item-s-12 item-m-4 flex-grow font-sans margin-bottom-basic">
 
         <h3 class="font-size-mid margin-bottom-small"><?php echo $gallery->name; ?></h3>
 

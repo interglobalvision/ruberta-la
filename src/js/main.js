@@ -51,7 +51,7 @@ Site = {
 
     // Set image max-height to width of container
     _this.$ratioImages.each(function() {
-      var width = $(this).parent().width();
+      var width = $(this).closest('.ratio-image-holder').width();
 
       $(this).css('max-height', width);
     });

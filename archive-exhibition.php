@@ -48,11 +48,11 @@ if ($query->have_posts()) {
     $background_color = get_post_meta($post->ID, '_igv_exhibition_background_color', true);
     $font_color = get_post_meta($post->ID, '_igv_exhibition_font_color', true);
 ?>
-
+        <a href="<?php echo get_the_permalink($post->ID); ?>">
         <article <?php post_class('padding-top-basic padding-bottom-basic'); ?> id="post-<?php the_ID(); ?>" style="background-color: <?php echo $background_color; ?>; color: <?php echo $font_color; ?>;">
           <div class="container">
             <div class="grid-row">
-              <div class="grid-item item-s-4 item-m-2">
+              <div class="grid-item item-s-4 item-m-2 ratio-image-holder">
                 <?php the_post_thumbnail('item-l-2', 'class=ratio-image'); ?>
               </div>
               <div class="grid-item item-s-8 item-m-10 item-l-8 no-gutter grid-row">
@@ -69,7 +69,7 @@ if ($query->have_posts()) {
 <?php
     }
 ?>
-                  <h2 class="font-serif font-size-large"><a href="<?php echo get_the_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a></h2>
+                  <h2 class="font-serif font-size-large"><?php echo get_the_title($post->ID); ?></h2>
                 </div>
                 <div class="grid-item item-s-12 item-m-6">
 <?php
@@ -101,6 +101,7 @@ if ($query->have_posts()) {
             </div>
           </div>
         </article>
+        </a>
 
 <?php
   }
