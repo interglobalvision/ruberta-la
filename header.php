@@ -107,14 +107,14 @@ if (!empty($current_exhibition)) {
           <h1 class="font-size-extra font-logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
         </div>
 
-        <nav class="grid-item item-s-6 item-m-4 item-l-6">
+        <nav class="grid-item item-s-6 item-m-4 item-l-5 item-xl-6">
           <ul id="nav-list" class="u-inline-list font-bold font-sans font-size-small margin-top-micro">
             <li><a href="<?php echo home_url('exhibitions'); ?>">Exhibitions</a></li>
             <li><a href="<?php echo home_url('about'); ?>">About</a></li>
           </ul>
         </nav>
 
-        <div class="grid-item item-m-4 item-l-3 desktop-only font-sans font-size-small font-light">
+        <div id="header-tagline" class="grid-item item-m-4 item-l-4 item-xl-3 desktop-only font-sans font-light">
           <?php echo get_bloginfo('description'); ?>
         </div>
 
