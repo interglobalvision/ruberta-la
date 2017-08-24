@@ -9,13 +9,8 @@
 <?php
 get_template_part('partials/globie');
 get_template_part('partials/seo');
+get_template_part('partials/favicon');
 ?>
-
-  <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
-  <link rel="icon" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.png">
-  <link rel="shortcut" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.ico">
-  <link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon-touch.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.png">
 
 <?php if (is_singular() && pings_open(get_queried_object())) { ?>
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
@@ -23,79 +18,7 @@ get_template_part('partials/seo');
 
 <?php wp_head(); ?>
 
-<?php
-
-$current_args = array(
-  'post_type'   => 'exhibition',
-  'numberposts' => '1',
-  'meta_key'    => '_igv_exhibition_start_date',
-  'orderby'     => 'meta_value_num',
-  'order'       => 'ASC',
-  'meta_query'  => array(
-    array(
-      'key'    => '_igv_exhibition_current',
-      'value'  => 'on',
-    ),
-  ),
-);
-
-$current_exhibition = get_posts($current_args);
-
-if (!empty($current_exhibition)) {
-  $background_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_background_color', true);
-  $font_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_font_color', true);
-
-?>
-  <style>
-<?php
-  if (!empty($background_color)) {
-?>
-    html,
-    body,
-    #header {
-      background-color: <?php echo $background_color; ?>;
-    }
-
-    ::selection {
-      color: <?php echo $background_color; ?>;
-    }
-<?php
-  }
-
-  if (!empty($font_color)) {
-?>
-    html,
-    body,
-    .mc-field-group input,
-    #mailing-list-holder input.button,
-    #mailing-list-holder #mc_embed_signup #mce-success-response,
-    #mailing-list-holder #mc_embed_signup #mce-error-response,
-    #mailing-list-holder #mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
-      color: <?php echo $font_color; ?>;
-    }
-
-    #mailing-list-holder,
-    #mailing-list-holder #mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
-      border-color: <?php echo $font_color; ?>;
-    }
-
-    svg path {
-      fill: <?php echo $font_color; ?>;
-    }
-
-    ::selection {
-      background-color: <?php echo $font_color; ?>;
-    }
-<?php
-  }
-?>
-
-
-
-  </style>
-<?php
-}
-?>
+<?php get_template_part('partials/custom-color'); ?>
 </head>
 <body <?php body_class(); ?>>
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
