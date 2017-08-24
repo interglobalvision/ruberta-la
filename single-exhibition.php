@@ -68,7 +68,7 @@ if (have_posts()) {
 
         <div class="masonry-item text-align-right margin-bottom-mid ratio-image-holder">
           <?php echo wp_get_attachment_image($id, 'item-l-6', false, array('data-no-lazysizes' => ' ', 'class' => 'ratio-image')); ?>
-          <div class="text-align-right font-size-small font-sans font-light margin-top-micro"><?php echo $caption; ?></div>
+          <div class="caption text-align-right font-size-small font-sans font-light margin-top-micro"><?php echo $caption; ?></div>
         </div>
 
 <?php
@@ -77,7 +77,7 @@ if (have_posts()) {
 ?>
         <div class="masonry-item text-align-right margin-bottom-mid">
           <?php echo the_post_thumbnail('item-l-6', array('data-no-lazysizes' => ' ', 'class' => 'ratio-image')); ?>
-          <div class="text-align-right font-size-small font-sans font-light margin-top-micro"><?php the_post_thumbnail_caption(); ?></div>
+          <div class="caption text-align-right font-size-small font-sans font-light margin-top-micro"><?php the_post_thumbnail_caption(); ?></div>
         </div>
 <?php
     }
