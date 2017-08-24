@@ -67,12 +67,15 @@ if (!empty($current_exhibition)) {
     html,
     body,
     .mc-field-group input,
-    #mailing-list-holder input.button {
+    #mailing-list-holder input.button,
+    #mailing-list-holder #mc_embed_signup #mce-success-response,
+    #mailing-list-holder #mc_embed_signup #mce-error-response,
+    #mailing-list-holder #mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
       color: <?php echo $font_color; ?>;
     }
 
     #mailing-list-holder,
-    #mailing-list-holder #mc_embed_signup input.mce_inline_error {
+    #mailing-list-holder #mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
       border-color: <?php echo $font_color; ?>;
     }
 
