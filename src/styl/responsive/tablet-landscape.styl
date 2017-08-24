@@ -20,6 +20,10 @@ $header-height= 75px
 .masonry-item
   padding: 0 $margin-tiny
 
+.limit-paragraph
+  p
+    max-width: 500px
+
 // ABOUT
 
 #about-galleries
@@ -31,6 +35,13 @@ $header-height= 75px
 
 #mailing-list-holder
   padding: $margin-small $margin-basic $margin-large
+
+  #mc_embed_signup
+    #mc-embedded-subscribe-form
+      div.mce_inline_error
+        margin: $margin-micro 0 0 0
+        background: transparent
+        flex-basis: 100%
 
   .mc-field-group
     padding: $margin-small 0
@@ -45,3 +56,8 @@ $header-height= 75px
   input.button
     font-size: $font-size-mid
     margin-top: $margin-tiny
+
+#map-holder
+  min-height: 450px
+  iframe
+    width: calc('100% - ' + $margin-small)

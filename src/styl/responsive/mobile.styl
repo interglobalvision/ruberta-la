@@ -31,7 +31,7 @@ $header-height= 50px
 
 .limit-paragraph
   p
-    max-width: 500px
+    max-width: 400px
 
 // ABOUT
 
@@ -59,6 +59,20 @@ svg.social-icon
     background: transparent
     h2
       display: none
+    .button:hover
+      background: transparent
+    #mc-embedded-subscribe-form
+      div.mce_inline_error
+        margin: $margin-micro 0 0 0
+        background: transparent
+        flex-basis: 100%
+        text-align: right
+      input.mce_inline_error
+        border-width: 1px
+    div.response
+      text-align: center
+      width: 100%
+      font-weight: 300
 
   .indicates-required
     display: none
@@ -83,10 +97,7 @@ svg.social-icon
       flex: 0 1 100%
       font-size: $font-size-mid
       padding: $margin-micro 0
-    div.mce_inline_error
-      margin: $margin-micro 0 0 0
-      background: transparent
-      flex-basis: 100%
+      border-radius: 0
 
   input.button
     appearance: none
@@ -96,3 +107,6 @@ svg.social-icon
     font-weight: bold
     cursor: pointer
     margin-top: $margin-tiny
+
+  .clear
+    text-align: center
