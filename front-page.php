@@ -118,7 +118,7 @@ if (!empty($upcoming)) {
   foreach ($upcoming as $post) {
 ?>
 
-          <div class="grid-item item-s-12">
+          <div class="grid-item item-s-12 margin-bottom-mid">
             <?php echo render_exhibition_details($post->ID);?>
           </div>
 
