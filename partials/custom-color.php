@@ -1,24 +1,28 @@
 <?php
-
-$current_args = array(
-  'post_type'   => 'exhibition',
-  'numberposts' => '1',
-  'meta_key'    => '_igv_exhibition_start_date',
-  'orderby'     => 'meta_value_num',
-  'order'       => 'ASC',
-  'meta_query'  => array(
-    array(
-      'key'    => '_igv_exhibition_current',
-      'value'  => 'on',
+if (is_singular('exhibition')) {
+  global $post;
+  $current_exhibition = $post;
+} else {
+  $current_args = array(
+    'post_type'   => 'exhibition',
+    'numberposts' => '1',
+    'meta_key'    => '_igv_exhibition_start_date',
+    'orderby'     => 'meta_value_num',
+    'order'       => 'ASC',
+    'meta_query'  => array(
+      array(
+        'key'    => '_igv_exhibition_current',
+        'value'  => 'on',
+      ),
     ),
-  ),
-);
+  );
 
-$current_exhibition = get_posts($current_args);
+  $current_exhibition = get_posts($current_args)[0];
+}
 
 if (!empty($current_exhibition)) {
-  $background_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_background_color', true);
-  $font_color = get_post_meta($current_exhibition[0]->ID, '_igv_exhibition_font_color', true);
+  $background_color = get_post_meta($current_exhibition->ID, '_igv_exhibition_background_color', true);
+  $font_color = get_post_meta($current_exhibition->ID, '_igv_exhibition_font_color', true);
 
 ?>
   <style>
